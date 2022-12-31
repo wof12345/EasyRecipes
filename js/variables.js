@@ -1,0 +1,40 @@
+let recipeContainer = document.querySelector(`.cards`);
+
+let contextData;
+
+//model variable
+let recipeItemModel = function (data) {
+  console.log(data);
+
+  return `<li class="cards_item" data-id="${data._id}">
+    <div class="card">
+      <div class="card_image">
+        <img title="img" src="https://picsum.photos/500/300/?image=10" />
+      </div>
+      <div class="card_content">
+        <div class="peer_info">
+          <p class="views">views : ${data.recipeViews}</p>
+          <p class="likes">likes :  ${data.recipeLikes}</p>
+        </div>
+
+
+        <h6>Tags:</h6>
+        <div class="tags">
+       
+         ${data.recipeTags.map((elm) => {
+           return `<tag>${elm}</tag>`;
+         })}
+        </div>
+
+        <h2 class="card_title">${data.recipeName}</h2>
+
+        <p class="card_text">
+          ${data.recipeDetails}
+        </p>
+        <a class="link_button" href="shopping-page.html"
+          ><button class="btn card_btn">Read More</button></a
+        >
+      </div>
+    </div>
+  </li>`;
+};
