@@ -94,9 +94,12 @@ export async function getRecipe(req, res) {
     } else {
       items = await query;
       let searchContext = queryData.searchContext;
+      console.log(searchContext);
 
-      if (searchContext?.includes("name")) {
-        items = filterByToken(items, searchContext, queryData[searchContext]);
+      if (searchContext?.includes("Name")) {
+        console.log("done");
+
+        items = filterByToken(items, searchContext, queryData["searchValue"]);
       }
 
       console.log(queryData);

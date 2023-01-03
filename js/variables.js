@@ -3,6 +3,7 @@ let recipeContainer = document.querySelector(`.cards`);
 let lastNavigatedRecipeId = "";
 
 let contextData;
+let searchResult;
 
 //model variable
 let recipeItemModel = function (data) {

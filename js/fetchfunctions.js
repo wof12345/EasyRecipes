@@ -1,4 +1,4 @@
-async function getData(context, containerQuery) {
+async function getData(context, containerQuery, search) {
   fetch(`http://localhost:3000/${context}`, {
     method: "GET",
     headers: {
@@ -11,7 +11,10 @@ async function getData(context, containerQuery) {
     .then((data) => {
       contextData = data.data.items;
 
-      if (context.includes("recipes"))
+      if (search) {
+        searchResult = contextData;
+        populateResult();
+      } else if (context.includes("recipes"))
         if (containerQuery) updateRecipeContainer(contextData);
         else renderRecipePage(contextData);
     })

@@ -21,4 +21,8 @@ document.addEventListener("click", (e) => {
 
     location.href = "../shopping-page.html";
   }
+
+  if (!target.closest(".result-container")) {
+    resultContainer.innerHTML = "";
+  }
 });
