@@ -22,6 +22,7 @@
       crossorigin="anonymous"
     ></script>
     <link rel="stylesheet" href="./css/cart.css" />
+    <link rel="stylesheet" href="./css/style.css" />
     <link rel="stylesheet" href="./css/popup.css" />
     <link rel="stylesheet" href="./css/testimonial.css" />
     <link rel="stylesheet" href="./css/backendadd.css" />
@@ -70,7 +71,7 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
           <li class="nav-item active mx-2">
-            <a class="nav-link" href="index.html">
+            <a class="nav-link" href="#">
               <h4 class="text-danger fw-bolder">EasyRecipes</h4>
             </a>
           </li>
@@ -78,10 +79,11 @@
             <a class="nav-link text-danger" href="#">About Us</a>
           </li>
           <li class="nav-item mx-2">
-            <a class="nav-link text-danger" href="#">login</a>
-          </li>
-          <li class="nav-item mx-2">
-            <a class="nav-link text-danger" href="#">Sign Up</a>
+            <a
+              class="nav-link text-danger login_register_invoker"
+              href="./login.html"
+              >login/signup</a
+            >
           </li>
         </ul>
         <div class="search-container">
@@ -91,9 +93,11 @@
             placeholder="Search your Favourite item..."
             class="search-input text-danger"
           />
-          <a href="#" class="search-btn">
-            <i class="fas fa-search"></i>
-          </a>
+          <a href="#" class="search-btn"><i class="fas fa-search"></i></a>
+        </div>
+
+        <div class="user_picture">
+          <a href="./userpage.html"><img src="./images/bg2.jpg" alt="" /></a>
         </div>
       </div>
     </nav>
@@ -232,5 +236,7 @@
         </div>
       </div>
     </section>
+
+    <script src="./js/loginverification.js"></script>
   </body>
 </html>

@@ -1,4 +1,4 @@
-async function getData(context) {
+async function getData(context, containerQuery) {
   fetch(`http://localhost:3000/${context}`, {
     method: "GET",
     headers: {
@@ -11,7 +11,9 @@ async function getData(context) {
     .then((data) => {
       contextData = data.data.items;
 
-      updateRecipeContainer(contextData);
+      if (context.includes("recipes"))
+        if (containerQuery) updateRecipeContainer(contextData);
+        else renderRecipePage(contextData);
     })
     .catch((err) => {
       throw err;
@@ -39,7 +41,7 @@ async function updateData(context, data) {
     });
 }
 
-async function updloadData(context, data) {
+async function uploadData(context, data) {
   fetch(`http://localhost:3000/${context}`, {
     method: "POST",
     headers: {
@@ -52,7 +54,6 @@ async function updloadData(context, data) {
     })
     .then((data) => {
       console.log(data);
-      getData(contextInfo.database);
     })
     .catch((err) => {
       throw err;

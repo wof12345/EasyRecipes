@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,200;0,300;1,200;1,300&family=Sono:wght@200;300;400&display=swap");
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:600);
 
 * {
   margin: 0;
@@ -10,10 +11,35 @@
   /* background: #030303; */
 }
 
+.user_picture {
+  position: absolute;
+  width: 100px;
+  aspect-ratio: 1/1;
+  border-radius: 100px;
+  top: 10px;
+  left: 20px;
+  z-index: 100;
+  display: none;
+}
+
+.user_picture img {
+  border-radius: 100px;
+  /* padding: 10px; */
+}
+
+.user_picture img:hover {
+  border-radius: 130px;
+  cursor: pointer;
+  padding: 10px;
+}
+
 .collapse {
+  position: relative;
   display: flex;
+  flex-direction: column !important;
   align-items: center;
   justify-content: center;
+  z-index: 6;
 }
 
 .nav-link:hover {
@@ -23,9 +49,9 @@
 
 .navbar {
   background: rgba(30, 30, 30);
+  z-index: 5;
 }
 /* ---------------------cart ---------------------*/
-@import url(https://fonts.googleapis.com/css?family=Open+Sans:600);
 
 .popup_cart {
   text-decoration: none;
@@ -237,12 +263,23 @@ img {
 .link_button:hover {
   color: #a0811b;
 }
-.cards {
+.cards,
+.cards-suggested {
   display: flex;
   flex-wrap: wrap;
   list-style: none;
   margin: 0;
   padding: 0;
+}
+
+.search-btn {
+  outline: none;
+  border: none;
+  background-color: #00000000;
+}
+
+.search-btn:hover {
+  cursor: pointer;
 }
 
 .cards_item {

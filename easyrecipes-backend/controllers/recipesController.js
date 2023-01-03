@@ -8,7 +8,7 @@ let demoData = {
   recipeDetails: "King kong",
   recipeViews: 2445,
   recipeLikes: 1,
-  recipeTags: ["mainland", "subland"],
+  recipeTags: [{ tag: "mainland" }],
   comments: [
     {
       userID: "3423",
@@ -17,8 +17,17 @@ let demoData = {
       commentLikes: 35,
     },
   ],
-  creationDate: new Date().getTime(),
-  ingredients: [{ ingredientID: "imsdasf", quantity: 345, price: 4564 }],
+  attributeInfo: [{ attributeName: "data", attributeValue: "value" }],
+  creationDate: 1032324123,
+  ingredients: [
+    {
+      ingredientID: "imsdasf",
+      ingredientName: "soda",
+      quantity: 345,
+      price: 4564,
+    },
+  ],
+  rating: 3.4,
 };
 
 function matchKey(item, fieldName, pattern) {

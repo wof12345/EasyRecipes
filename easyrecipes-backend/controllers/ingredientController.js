@@ -2,8 +2,9 @@ import ingredients from "../models/ingredientModel.js";
 
 let demoData = {
   ingredientName: "mula",
-  ingredientPrice: "24",
-  ingredientStockQuantity: "56",
+  ingredientImage: "mula",
+  ingredientPrice: 24,
+  ingredientStockQuantity: 6,
   ingredientID: "p-67",
   ingredientDetails: "dmifnsdk sgsdifd",
 };

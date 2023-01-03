@@ -54,6 +54,33 @@ document.body.addEventListener("click", (e) => {
     updateData(contextInfo.database + "/" + contextInfo.lastFieldID, model);
   }
 
+  if (targetClass.includes("add-update")) {
+    let targetParent = target.closest(".recipe-handle-window");
+    let fieldName = target.dataset["field"];
+
+    let contextInput = targetParent.querySelectorAll("input");
+
+    contextInput.forEach((elm, ind) => {
+      let contextInputLabel = targetParent
+        .querySelectorAll("label")
+        [ind].textContent.split(":")[0]
+        .trim();
+
+      let value = elm.value;
+
+      if (contextInputLabel.toLowerCase().includes("tags"))
+        value = elm.value.split(",").map((elm) => elm.trim());
+
+      model[contextInputLabel] = value;
+    });
+    let modelObj = {};
+    modelObj[fieldName] = model;
+    let updateObj = { $push: modelObj };
+    console.log(updateObj);
+
+    updateData(contextInfo.database + "/" + contextInfo.lastFieldID, updateObj);
+  }
+
   //add button handler
   if (targetClass.includes("edit-add")) {
     let targetParent = target.closest(".edit-window");
@@ -76,14 +103,38 @@ document.body.addEventListener("click", (e) => {
 
     model.creationDate = new Date().getTime();
 
-    console.log(contextInput, model);
-
     updloadData(contextInfo.database + "/", model);
+  }
+
+  if (targetClass === "delete-attribute") {
+    let id = target.dataset["id"];
+    let fieldName = target.dataset["field"];
+    // console.log(field);
+    let fieldToDel = {};
+    fieldToDel[fieldName] = { _id: id };
+    model = { $pull: fieldToDel };
+
+    updateData(contextInfo.database + "/" + contextInfo.lastFieldID, model);
+  }
+
+  if (targetClass === "add-collection") {
+    let fieldName = target.dataset["field"];
+
+    callRecipeHandlePage(true);
+    recipeHandle(fieldName);
   }
 
   //closes update page
   if (targetClass.includes("edit-window")) {
     callUpdatePage(false);
+    callRecipeHandlePage(false);
+  }
+
+  if (
+    !target.closest(".recipe-handle-window") &&
+    targetClass !== "add-collection"
+  ) {
+    callRecipeHandlePage(false);
   }
 });
 

@@ -4,6 +4,7 @@ let renderPage = document.querySelector(`main`);
 let editWindow = {
   editCont: document.querySelector(`.edit-window`),
   edit_update: document.querySelector(`.edit-update`),
+  recipeHandleWindow: document.querySelector(`.recipe-handle-window`),
 };
 
 let contextData = [];

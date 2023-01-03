@@ -29,9 +29,10 @@ async function updateData(context, data) {
       return response.json();
     })
     .then((data) => {
-      console.log(data);
-
       getData(contextInfo.database);
+      console.log("new", data.data.items);
+
+      renderUpdatePage(data.data.items);
     })
     .catch((err) => {
       throw err;
@@ -50,7 +51,6 @@ async function updloadData(context, data) {
       return response.json();
     })
     .then((data) => {
-      console.log(data);
       getData(contextInfo.database);
     })
     .catch((err) => {
@@ -69,7 +69,6 @@ async function deleteData(context) {
       return response.json();
     })
     .then((data) => {
-      console.log(data);
       getData(contextInfo.database);
     })
     .catch((err) => {

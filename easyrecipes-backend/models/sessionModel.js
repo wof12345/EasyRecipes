@@ -9,19 +9,22 @@ let messageSchema = mongoose.Schema({
   },
 });
 
-let sessionSchema = mongoose.Schema({
-  sessionID: {
-    type: String,
-    required: true,
-    index: true,
-    unique: true,
+let sessionSchema = mongoose.Schema(
+  {
+    sessionID: {
+      type: String,
+      required: true,
+      index: true,
+      unique: true,
+    },
+    messages: [messageSchema],
+    active: {
+      type: Boolean,
+      required: true,
+    },
   },
-  messages: [messageSchema],
-  active: {
-    type: Boolean,
-    required: true,
-  },
-});
+  { timeStamps: true }
+);
 
 const session = mongoose.model("session", sessionSchema);
 

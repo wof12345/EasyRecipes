@@ -1,5 +1,7 @@
 let recipeContainer = document.querySelector(`.cards`);
 
+let lastNavigatedRecipeId = "";
+
 let contextData;
 
 //model variable
@@ -22,7 +24,7 @@ let recipeItemModel = function (data) {
         <div class="tags">
        
          ${data.recipeTags.map((elm) => {
-           return `<tag>${elm}</tag>`;
+           return `<tag>${elm["tag"]}</tag>`;
          })}
         </div>
 

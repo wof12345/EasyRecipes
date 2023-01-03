@@ -86,10 +86,11 @@
             <a class="nav-link text-danger" href="#">About Us</a>
           </li>
           <li class="nav-item mx-2">
-            <a class="nav-link text-danger" href="#">login</a>
-          </li>
-          <li class="nav-item mx-2">
-            <a class="nav-link text-danger" href="#">Sign Up</a>
+            <a
+              class="nav-link text-danger login_register_invoker"
+              href="./login.html"
+              >login/signup</a
+            >
           </li>
         </ul>
         <div class="search-container">
@@ -99,7 +100,13 @@
             placeholder="Search your Favourite item..."
             class="search-input text-danger"
           />
-          <a href="#" class="search-btn"><i class="fas fa-search"></i></a>
+          <button title="search" class="search-btn">
+            <i class="fas fa-search"></i>
+          </button>
+        </div>
+
+        <div class="user_picture">
+          <a href="./userpage.html"><img src="./images/bg2.jpg" alt="" /></a>
         </div>
       </div>
     </nav>
@@ -196,131 +203,11 @@
 
     <div class="bg__gradient"></div>
     <div class="main">
-      <h1 class="main_header">Responsive Card Grid Layout</h1>
-      <ul class="cards">
-        <li class="cards_item" data-id="">
-          <div class="card">
-            <div class="card_image">
-              <img title="img" src="https://picsum.photos/500/300/?image=10" />
-            </div>
-            <div class="card_content">
-              <div class="peer_info">
-                <p class="views">views : 23</p>
-                <p class="likes">likes : 34</p>
-              </div>
+      <h1 class="main_header suggested">Suggested for you</h1>
+      <ul class="cards-suggested"></ul>
 
-              <div class="tags">
-                <tag>mina</tag>
-                <tag>mina</tag>
-                <tag>mina</tag>
-                <tag>mina</tag>
-                <tag>mina</tag>
-                <tag>mina</tag>
-                <tag>mina</tag>
-                <tag>mina</tag>
-                <tag>mina</tag>
-              </div>
-
-              <h2 class="card_title">name</h2>
-
-              <p class="card_text">
-                Demo of pixel perfect pure CSS simple responsive card grid
-                layout
-              </p>
-              <a class="link_button" href="shopping-page.html"
-                ><button class="btn card_btn">Read More</button></a
-              >
-            </div>
-          </div>
-        </li>
-        <li class="cards_item">
-          <div class="card">
-            <div class="card_image">
-              <img src="https://picsum.photos/500/300/?image=5" title="img" />
-            </div>
-            <div class="card_content">
-              <h2 class="card_title">Card Grid Layout</h2>
-              <p class="card_text">
-                Demo of pixel perfect pure CSS simple responsive card grid
-                layout
-              </p>
-              <a class="link_button" href="shopping-page.html"
-                ><button class="btn card_btn">Read More</button></a
-              >
-            </div>
-          </div>
-        </li>
-
-        <li class="cards_item">
-          <div class="card">
-            <div class="card_image">
-              <img title="img" src="https://picsum.photos/500/300/?image=11" />
-            </div>
-            <div class="card_content">
-              <h2 class="card_title">Card Grid Layout</h2>
-              <p class="card_text">
-                Demo of pixel perfect pure CSS simple responsive card grid
-                layout
-              </p>
-              <a class="link_button" href="shopping-page.html"
-                ><button class="btn card_btn">Read More</button></a
-              >
-            </div>
-          </div>
-        </li>
-
-        <li class="cards_item">
-          <div class="card">
-            <div class="card_image">
-              <img title="img" src="https://picsum.photos/500/300/?image=14" />
-            </div>
-            <div class="card_content">
-              <h2 class="card_title">Card Grid Layout</h2>
-              <p class="card_text">
-                Demo of pixel perfect pure CSS simple responsive card grid
-                layout
-              </p>
-              <a class="link_button" href="shopping-page.html"
-                ><button class="btn card_btn">Read More</button></a
-              >
-            </div>
-          </div>
-        </li>
-        <li class="cards_item">
-          <div class="card">
-            <div class="card_image">
-              <img title="img" src="https://picsum.photos/500/300/?image=17" />
-            </div>
-            <div class="card_content">
-              <h2 class="card_title">Card Grid Layout</h2>
-              <p class="card_text">
-                Demo of pixel perfect pure CSS simple responsive card grid
-                layout
-              </p>
-              <a class="link_button" href="shopping-page.html"
-                ><button class="btn card_btn">Read More</button></a
-              >
-            </div>
-          </div>
-        </li>
-        <li class="cards_item">
-          <div class="card">
-            <div class="card_image">
-              <img title="img" src="https://picsum.photos/500/300/?image=2" />
-            </div>
-            <div class="card_content">
-              <h2 class="card_title">Card Grid Layout</h2>
-              <p class="card_text">
-                Demo of pixel perfect pure CSS simple responsive card grid
-                layout
-              </p>
-              <a class="link_button" href="shopping-page.html"
-                ><button class="btn card_btn">Read More</button></a
-              >
-            </div>
-          </div>
-        </li>
-      </ul>
+      <h1 class="main_header">Latest recipes</h1>
+      <ul class="cards"></ul>
     </div>
 
     <!-------------- video----------------->
@@ -340,84 +227,13 @@
         ></a>
       </div>
       <div>
-        <video
+        <!-- <video
           class="videos"
           src="video/video1.mp4"
           muted
           autoplay
           loop
-        ></video>
-      </div>
-    </section>
-
-    <!--------------------- testimonial -------------------------->
-
-    <section id="testim" class="testim">
-      <div class="wrap">
-        <span id="right-arrow" class="arrow right fa fa-chevron-right"></span>
-        <span id="left-arrow" class="arrow left fa fa-chevron-left"></span>
-        <ul id="testim-dots" class="dots">
-          <li class="dot active"></li>
-
-          <li class="dot"></li>
-
-          <li class="dot"></li>
-
-          <li class="dot"></li>
-
-          <li class="dot"></li>
-        </ul>
-        <div id="testim-content" class="cont">
-          <div class="active">
-            <div class="img"><img src="images/ckn2.jpg" alt="" /></div>
-            <h2>Lorem P. Ipsum</h2>
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-              enim ad minim veniam, quis nostrud exercitation ullamco.
-            </p>
-          </div>
-
-          <div>
-            <div class="img"><img src="images/ckn2.jpg" alt="" /></div>
-            <h2>Mr. Lorem Ipsum</h2>
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-              enim ad minim veniam, quis nostrud exercitation ullamco.
-            </p>
-          </div>
-
-          <div>
-            <div class="img"><img src="images/ckn2.jpg" alt="" /></div>
-            <h2>Lorem Ipsum</h2>
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-              enim ad minim veniam, quis nostrud exercitation ullamco.
-            </p>
-          </div>
-
-          <div>
-            <div class="img"><img src="images/ckn2.jpg" alt="" /></div>
-            <h2>Lorem De Ipsum</h2>
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-              enim ad minim veniam, quis nostrud exercitation ullamco.
-            </p>
-          </div>
-
-          <div>
-            <div class="img"><img src="images/ckn2.jpg" alt="" /></div>
-            <h2>Ms. Lorem R. Ipsum</h2>
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-              enim ad minim veniam, quis nostrud exercitation ullamco.
-            </p>
-          </div>
-        </div>
+        ></video> -->
       </div>
     </section>
 
@@ -482,6 +298,9 @@
 
     <script src="./js/fetchfunctions.js"></script>
     <script src="./js/variables.js"></script>
+    <script src="./js/suggessioncode.js"></script>
+    <script src="./js/loginverification.js"></script>
+    <script src="./js/search.js"></script>
     <script src="./js/uiutilityfunctions.js"></script>
     <script src="./js/main.js"></script>
     <script src="./js/chat.js"></script>

@@ -10,31 +10,8 @@ let demoData = {
   userAddress: "bangladesh",
   userGender: "masdhs",
   userCreditInfo: "34-32-442",
-  userCart: [
-    {
-      cartProducts: [{ ingredientID: "minsa", quantity: 332, price: 4532 }],
-      cartID: "sdwew",
-      cartPrice: "mins",
-    },
-  ],
-  userHistory: [
-    {
-      transactionID: "sdawe",
-      history: [
-        {
-          orderID: "mina",
-          orderDate: 12342,
-          orderDetails: {
-            cartProducts: [
-              { ingredientID: "minsa", quantity: 332, price: 4532 },
-            ],
-            cartID: "sdwew",
-            cartPrice: "mins",
-          },
-        },
-      ],
-    },
-  ],
+  userCart: [],
+  userHistory: [],
   userClickedTags: [],
 };
 

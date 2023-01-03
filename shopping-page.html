@@ -22,6 +22,7 @@
       crossorigin="anonymous"
     ></script>
     <link rel="stylesheet" href="./css/popup.css" />
+    <link rel="stylesheet" href="./css/style.css" />
     <link rel="stylesheet" href="./css/testimonial.css" />
     <link rel="stylesheet" href="./css/shopping-page.css" />
     <link rel="stylesheet" href="./css/backendadd.css" />
@@ -70,10 +71,11 @@
       >
         <span class="navbar-toggler-icon"></span>
       </button>
+
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
           <li class="nav-item active mx-2">
-            <a class="nav-link" href="index.html">
+            <a class="nav-link" href="#">
               <h4 class="text-danger fw-bolder">EasyRecipes</h4>
             </a>
           </li>
@@ -81,10 +83,11 @@
             <a class="nav-link text-danger" href="#">About Us</a>
           </li>
           <li class="nav-item mx-2">
-            <a class="nav-link text-danger" href="#">login</a>
-          </li>
-          <li class="nav-item mx-2">
-            <a class="nav-link text-danger" href="#">Sign Up</a>
+            <a
+              class="nav-link text-danger login_register_invoker"
+              href="./login.html"
+              >login/signup</a
+            >
           </li>
         </ul>
         <div class="search-container">
@@ -94,9 +97,11 @@
             placeholder="Search your Favourite item..."
             class="search-input text-danger"
           />
-          <a href="#" class="search-btn">
-            <i class="fas fa-search"></i>
-          </a>
+          <a href="#" class="search-btn"><i class="fas fa-search"></i></a>
+        </div>
+
+        <div class="user_picture">
+          <a href="./userpage.html"><img src="./images/bg2.jpg" alt="" /></a>
         </div>
       </div>
     </nav>
@@ -105,35 +110,23 @@
     <!----------------- video ---------------------->
     <section class="container1">
       <div class="container-text">
-        <h1 class="responsive_text">Honey-Garlic Chicken Thighs</h1>
+        <h1 class="responsive_text"></h1>
         <div class="star">
-          <i class="fa-solid fa-star"></i>
-          <i class="fa-solid fa-star"></i>
-          <i class="fa-solid fa-star"></i>
-          <i class="fa-solid fa-star"></i>
-          <i class="fa-solid fa-star-half-stroke"></i>
-          <p>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4.8(113)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-          </p>
+          <p class="likes"></p>
+          &nbsp;&nbsp;&nbsp;
           <div class="vr"></div>
-          <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;87 Reviews</p>
+          &nbsp;&nbsp;&nbsp;&nbsp;
+          <p class="views"></p>
         </div>
-        <h5 class="responsive_text">
-          This is one of my family's favorite recipes. It's garlic-sweet and the
-          cilantro tops it off.
-        </h5>
+
         <div class="star">
-          <h6 class="responsive_text">
-            Recipe by : <u>Yely</u> &nbsp;&nbsp;&nbsp;&nbsp;
-          </h6>
-          <div class="vr"></div>
           <h6 class="responsive_text">Updated on August 22,2022</h6>
         </div>
       </div>
       <div>
         <!-- <img src="images/main-camera.png" alt=""> -->
         <video
-          class="videos"
+          class="video-recipe"
           src="video/recipe_1.mp4"
           muted
           autoplay
@@ -145,86 +138,16 @@
     <!---------------------- time detail------------------->
     <div class="container1">
       <section class="details_time">
-        <div class="detail_time">
-          <h5>
-            <span class="fw-bolder h5">Prep Time :</span> <br />
-            15 Mins
-          </h5>
-          <h5>
-            <span class="fw-bolder h5">Cook Time :</span> <br />
-            10 Mins
-          </h5>
-          <h5>
-            <span class="fw-bolder h5">Total Time :</span> <br />
-            25 Mins
-          </h5>
-          <h5>
-            <span class="fw-bolder h5">Serving Time :</span> <br />
-            4
-          </h5>
-          <h5>
-            <span class="fw-bolder h5">Yield Time :</span> <br />
-            8 tacos
-          </h5>
-        </div>
+        <div class="detail_time"></div>
       </section>
     </div>
     <div class="container1 ingredients_part">
       <h1>Ingredients</h1>
-      <div class="list_items">
-        <li class="list_item">8 (5 ounce) boneless chicken thighs</li>
-        <li class="list_item">salt and ground black pepper to taste</li>
-        <li class="list_item">2 tablespoons olive oil, or as neededv</li>
-        <li class="list_item">½ medium onion, finely chopped</li>
-        <li class="list_item">7 cloves garlic, chopped, or to taste</li>
-        <li class="list_item">1 cup honey</li>
-        <li class="list_item">½ cup soy sauce</li>
-        <li class="list_item">1 pinch onion powder, or to taste</li>
-        <li class="list_item">1 pinch garlic powder, or to taste</li>
-        <li class="list_item">¼ cup chopped fresh cilantro</li>
-      </div>
+      <div class="list_items"></div>
     </div>
     <div class="container1 ingredients_part">
-      <h1>Directions</h1>
-      <div class="list_items">
-        <li class="list_item">
-          <strong>Step 1</strong> <br />Season the chicken on both sides with
-          salt and pepper.
-        </li>
-        <li class="list_item">
-          <strong>Step 2</strong> <br />Cover the bottom of a cast iron skillet
-          with olive oil and bring to medium-high heat. Add chicken and brown on
-          one side, 3 to 5 minutes. Flip chicken, and add onion and garlic;
-          continue to cook until chicken is mostly (but not fully) cooked and
-          onion and garlic are soft, 5 to 7 minutes more. Remove chicken to a
-          plate..
-        </li>
-        <li class="list_item">
-          <strong>Step 3</strong> <br />Add honey, soy sauce, onion powder,
-          garlic powder, and onion powder to the skillet. Stir and scrape the
-          bottom of the pan with a wooden spoon to get the garlic and onion to
-          mix with the liquid.
-        </li>
-        <li class="list_item">
-          <strong>Step 4</strong> <br />Put chicken back into the pan, cover,
-          and reduce heat to medium. Cook until no longer pink in the center and
-          juices run clear, about 10 more minutes, turning once halfway through.
-          An instant-read thermometer inserted into the center of a thigh should
-          read at least 165 degrees F (74 degrees C).
-        </li>
-        <li class="list_item">
-          <strong>Step 5</strong> <br />Place on a serving tray and drizzle
-          liquid from the pan on top. Sprinkle with chopped cilantro before
-          serving.
-        </li>
-      </div>
-    </div>
-
-    <!-- -----------------add to cart button--------------->
-    <div class="container1">
-      <div class="container-text">
-        <button>Add To Cart &nbsp;<i class="fas fa-shopping-cart"></i></button>
-      </div>
+      <h1>Details</h1>
+      <div class="list_items"></div>
     </div>
 
     <!--------------------- testimonial -------------------------->
@@ -328,10 +251,16 @@
               </ul>
             </div>
             <div class="col-lg-3 item social">
-              <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
-              <a href="#"><i class="fa-brands fa-twitter"></i></a>
-              <a href="#"><i class="fa-brands fa-snapchat"></i></a>
-              <a href="#"><i class="fa-brands fa-instagram"></i></a>
+              <a href="www.facebook.com"
+                ><i class="fa-brands fa-facebook-f"></i
+              ></a>
+              <a href="www.twitter.com"><i class="fa-brands fa-twitter"></i></a>
+              <a href="www.snapchat.com"
+                ><i class="fa-brands fa-snapchat"></i
+              ></a>
+              <a href="www.instagram.com"
+                ><i class="fa-brands fa-instagram"></i
+              ></a>
               <p class="copyright">Ishrak Abir © 2018</p>
             </div>
           </div>
@@ -355,8 +284,11 @@
       integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
       crossorigin="anonymous"
     ></script>
+    <script src="./js/variables.js"></script>
+    <script src="./js/fetchfunctions.js"></script>
+    <script src="./js/recipepage.js"></script>
+    <script src="./js/loginverification.js"></script>
     <script src="./js/chat.js"></script>
-
     <script src="./js/testimonial.js"></script>
   </body>
 </html>
