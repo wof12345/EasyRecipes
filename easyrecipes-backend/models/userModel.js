@@ -84,7 +84,7 @@ let userSchema = mongoose.Schema(
       type: String,
       required: true,
     },
-    userCart: [cartSchema],
+    userCart: cartSchema,
     userHistory: [userTransactionSchema],
     userClickedTags: [],
   },

@@ -7,6 +7,8 @@ let editWindow = {
   recipeHandleWindow: document.querySelector(`.recipe-handle-window`),
 };
 
+let lastCommand = "";
+
 let contextData = [];
 
 let contextMenu = document.querySelector(`.database-context_menu`);

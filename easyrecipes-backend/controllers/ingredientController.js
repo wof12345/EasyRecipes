@@ -69,6 +69,8 @@ export async function getIngredient(req, res) {
   try {
     let items;
     if (req.params.id) {
+      console.log(req.params.id);
+
       items = await ingredients.findById(req.params.id);
     } else {
       items = await query;
@@ -79,6 +81,9 @@ export async function getIngredient(req, res) {
       }
 
       console.log(queryData);
+    }
+    if (items === null) {
+      items = [];
     }
     res.status(200).json({
       status: "read success",

@@ -31,70 +31,88 @@ let editUpdateInputQuery = function (key, val, command) {
 </div>`;
 };
 
-let editUpdateCollectionQuery = function (key, val, command, param) {
-  console.log(val);
-
+let editUpdateCollectionQuery = function (key, val, command) {
   return `<div class="edit-cont">
     <label class="edit" for="edit">${key} :</label>
     <div class="collection">
-    ${generateCollection(val, param)}
-   
+    ${generateCollection(val, key)}
     </div>
-    ${
-      command === "add"
-        ? ""
-        : `<button class="add-collection" data-field=${param}>add collection</button>`
-    }
+  <button class="add-collection" data-field=${key}>add collection</button>
   </div>
 </div>`;
 };
 
-function generateCollection(collection, param) {
+function generateCollection(collection, key) {
   let generatedHtml = "";
 
   collection.map((elm) => {
     let collectionitem = "";
 
-    for (key in elm) {
-      collectionitem += `<p>${key} : ${elm[key]} </p>`;
+    for (keyinner in elm) {
+      collectionitem += `<p>${keyinner} : ${elm[keyinner]} </p>`;
     }
 
-    generatedHtml += `<div class='collectionitem ${param}'>${collectionitem}  <img class="delete-attribute" data-id=${elm._id} data-field=${param} src="./x.svg" alt=""
+    generatedHtml += `<div class='collectionitem ${key}'>${collectionitem}  <img class="delete-attribute" data-id=${elm._id} data-field=${key} src="./x.svg" alt=""
     /></div>`;
   });
   return generatedHtml;
 }
 
 //renders updation page
-function renderUpdatePage(contextItem, command) {
+function renderUpdatePage(contextItem, command, starter) {
   let generatedPage = "";
   let dataModel = {};
   model = {};
 
+  console.log("called with", contextItem);
+
+  lastCommand = command;
+
   if (contextItem !== undefined && contextItem !== null)
     Object.entries(contextItem).map(([key, val] = entry) => {
       let conditionParam = key.toLowerCase();
+      if (conditionParam !== "__v" && conditionParam !== "_id") {
+        if (starter) {
+          dataModel[key] = "";
+        } else {
+          dataModel[key] = contextItem[key];
+        }
+      }
+
       if (
-        conditionParam !== "__v" &&
-        conditionParam !== "_id" &&
-        !conditionParam !== "date" &&
-        !conditionParam.includes("likes") &&
-        !conditionParam.includes("views") &&
-        !conditionParam.includes("cart") &&
-        !conditionParam.includes("history") &&
-        !conditionParam.includes("clicked") &&
-        !conditionParam.includes("comment") &&
-        !conditionParam.includes("rating")
+        (conditionParam !== "__v" &&
+          conditionParam !== "_id" &&
+          conditionParam !== "" &&
+          !conditionParam.includes("id") &&
+          !conditionParam.includes("likes") &&
+          !conditionParam.includes("views") &&
+          !conditionParam.includes("cart") &&
+          !conditionParam.includes("history") &&
+          !conditionParam.includes("clicked") &&
+          !conditionParam.includes("comment") &&
+          !conditionParam.includes("rating") &&
+          !conditionParam.includes("comment") &&
+          !conditionParam.includes("date") &&
+          !conditionParam.includes("active")) ||
+        conditionParam.includes("birthdate") ||
+        conditionParam === "videolink"
       ) {
+        console.log(key, contextItem[key]);
         if (
           conditionParam.includes("attributeinfo") ||
           conditionParam.includes("tags") ||
           conditionParam === "ingredients"
         ) {
-          generatedPage += editUpdateCollectionQuery(key, val, command, key);
+          if (starter) {
+            dataModel[key] = [];
+          }
+          if (command === "add") {
+            val = dataModel[key];
+          }
+
+          generatedPage += editUpdateCollectionQuery(key, val, command);
         } else {
           generatedPage += editUpdateInputQuery(key, val, command);
-          dataModel[key] = "";
         }
       } else if (
         (conditionParam.includes("likes") ||

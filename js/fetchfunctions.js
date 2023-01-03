@@ -14,16 +14,21 @@ async function getData(context, containerQuery, search) {
       if (search) {
         searchResult = contextData;
         populateResult();
-      } else if (context.includes("recipes"))
+      } else if (context.includes("recipes")) {
         if (containerQuery) updateRecipeContainer(contextData);
         else renderRecipePage(contextData);
+      } else if (context.includes("users")) {
+        localStorage.setItem("user", JSON.stringify(contextData));
+      } else if (context.includes("ingredients")) {
+        handleCartFunction(contextData);
+      }
     })
     .catch((err) => {
       throw err;
     });
 }
 
-async function updateData(context, data) {
+async function updateData(context, data, update) {
   fetch(`http://localhost:3000/${context}`, {
     method: "PATCH",
     headers: {
@@ -35,16 +40,16 @@ async function updateData(context, data) {
       return response.json();
     })
     .then((data) => {
-      console.log(data);
-
-      getData(contextInfo.database);
+      if (update === "comment") {
+        renderRecipePage(data.data.items);
+      }
     })
     .catch((err) => {
       throw err;
     });
 }
 
-async function uploadData(context, data) {
+async function uploadData(context, data, query) {
   fetch(`http://localhost:3000/${context}`, {
     method: "POST",
     headers: {
@@ -56,6 +61,10 @@ async function uploadData(context, data) {
       return response.json();
     })
     .then((data) => {
+      if (query) {
+        suggessionItems = data.data.items;
+        populateSuggession();
+      }
       console.log(data);
     })
     .catch((err) => {

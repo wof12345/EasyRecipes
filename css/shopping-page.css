@@ -39,7 +39,6 @@
   box-shadow: 0px 10px 30px -15px #fff inset;
   display: block;
   margin: 0 auto;
-  z-index: 5;
 }
 .popup_cart .ribbon .ribbon-content {
   position: relative;
@@ -435,6 +434,7 @@ video:hover {
   padding: 20px;
   border-bottom: solid rgb(170, 78, 78) 1px;
   border-radius: 20px;
+  position: relative;
 }
 @media screen and (max-width: 992px) {
   .detail_time {
@@ -459,4 +459,24 @@ video:hover {
   video {
     margin-bottom: 30px;
   }
+}
+
+.ingredient-buy {
+  border-radius: 10px;
+  padding: 2px;
+}
+
+.ingredient-buy:hover {
+  background-color: #3132333b;
+}
+
+.floating_msg {
+  position: absolute;
+  top: 30%;
+  left: 40px;
+  opacity: 0;
+  pointer-events: none;
+  border-radius: 20px;
+  padding: 4px;
+  width: max-content;
 }

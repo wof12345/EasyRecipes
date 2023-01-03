@@ -1,9 +1,9 @@
 getData(
-  "recipes?fields=recipeName,recipeLikes,recipeTags,recipeViews,thumbnail,recipeDetails",
+  "recipes?fields=recipeName,recipeLikes,recipeTags,recipeViews,thumbnail,recipeDetails,recipeThumbnail ",
   true
 );
 
-if (isLoggedIn === false) {
+if (isLoggedIn === false || currentUser.userClickedTags.length <= 0) {
   suggestContainer.style = "display:none";
   suggestText.style = "display:none";
 }

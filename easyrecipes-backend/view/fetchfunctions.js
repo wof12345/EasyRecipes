@@ -32,7 +32,7 @@ async function updateData(context, data) {
       getData(contextInfo.database);
       console.log("new", data.data.items);
 
-      renderUpdatePage(data.data.items);
+      renderUpdatePage(data.data.items, lastCommand);
     })
     .catch((err) => {
       throw err;

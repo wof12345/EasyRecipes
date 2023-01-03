@@ -5,6 +5,13 @@ let lastNavigatedRecipeId = "";
 let contextData;
 let searchResult;
 
+let suggessionItems = [];
+
+let mousePos = {
+  x: 0,
+  y: 0,
+};
+
 //model variable
 let recipeItemModel = function (data) {
   console.log(data);
@@ -12,7 +19,7 @@ let recipeItemModel = function (data) {
   return `<li class="cards_item" data-id="${data._id}">
     <div class="card">
       <div class="card_image">
-        <img title="img" src="https://picsum.photos/500/300/?image=10" />
+        <img title="img" src=${data.recipeThumbnail} />
       </div>
       <div class="card_content">
         <div class="peer_info">

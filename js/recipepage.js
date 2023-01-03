@@ -6,8 +6,53 @@ function invokeRecipePage() {
 
 invokeRecipePage();
 
+function saveClickedTags(data) {
+  let updateObj = {};
+  let tagObjectArrayPush = [];
+  let tagObjectArraySet = [];
+
+  if (isLoggedIn) {
+    console.log(currentUser.userClickedTags);
+
+    data.recipeTags.forEach((elmRecipe) => {
+      let exist = false;
+      currentUser.userClickedTags.forEach((elm) => {
+        if (elm) {
+          if (elm.tag === elmRecipe.tag) {
+            elm.clicked = elm.clicked + 1;
+            exist = true;
+          }
+        }
+      });
+      console.log(exist, elmRecipe.tag);
+
+      if (!exist) {
+        tagObjectArray.push({ tag: elmRecipe.tag, clicked: 1 });
+      }
+    });
+
+    if (tagObjectArrayPush.length > 0) {
+      updateObj = {
+        $push: {
+          userClickedTags: {
+            $each: tagObjectArrayPush,
+            $sort: { clicked: -1 },
+          },
+        },
+      };
+    } else {
+      tagObjectArraySet = currentUser.userClickedTags;
+      updateObj = { userClickedTags: tagObjectArraySet };
+      console.log(tagObjectArraySet);
+    }
+
+    updateData(`users/${currentUser._id}`, updateObj);
+  }
+}
+
 function renderRecipePage(data) {
   console.log(data);
+  saveClickedTags(data);
 
   let h1 = document.querySelector(`h1`);
 
@@ -17,6 +62,8 @@ function renderRecipePage(data) {
   let time = document.querySelector(`h6`);
   let video = document.querySelector(`.video-recipe`);
   let attributes = document.querySelector(`.detail_time`);
+
+  video.src = data.videoLink;
 
   data.attributeInfo.forEach((elm) => {
     attributes.innerHTML += `<h5><span class="fw-bolder h5">${elm["attributeName"]}</span><br>${elm["attributeValue"]}</h5>`;
@@ -29,8 +76,10 @@ function renderRecipePage(data) {
 
   containers[0].innerHTML = "";
   data.ingredients.forEach((element) => {
-    containers[0].innerHTML += `<ingredient><p class="ingredient-detail">name : ${element["ingredientName"]}</p><p class="ingredient-detail">quantity : ${element["quantity"]}</p><p class="ingredient-detail">price : ${element["price"]}</p><button class="ingredient-buy">buy</button></ingredient>`;
+    containers[0].innerHTML += `<ingredient><p class="ingredient-detail">name : ${element["ingredientName"]}</p><p class="ingredient-detail">quantity : ${element["quantity"]}</p><p class="ingredient-detail">price : ${element["price"]}</p><button class="ingredient-buy" data-id=${element.ingredientID}>add to cart</button></ingredient>`;
   });
+
+  attachCartCode();
 
   likes.textContent = "likes : " + data.recipeLikes + "   ";
   views.textContent = "views : " + data.recipeViews + "   ";
@@ -52,10 +101,12 @@ function generateTestiMonials(data) {
     }"></li>`;
     testimContent.innerHTML += `<div class="${ind === 0 ? "active" : ""}">
     <div class="img"><img src="${elm["userPic"]}" alt=""></div>
-    <h2>Mr. Lorem Ipsum</h2>
+    <h2>${elm.userName}</h2>
     <p>
       ${elm["commentText"]}
     </p>
   </div>`;
   });
+
+  callTestimLoad();
 }

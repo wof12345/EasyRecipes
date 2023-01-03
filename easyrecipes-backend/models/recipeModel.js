@@ -15,6 +15,10 @@ let productSchema = mongoose.Schema({
 
 let commentSchema = mongoose.Schema(
   {
+    userName: {
+      type: String,
+      required: true,
+    },
     userID: {
       type: String,
       required: true,

@@ -49,6 +49,8 @@ indexRouter
   .post(uploadRecipe)
   .delete(deleteRecipe);
 
+indexRouter.route("/recipesbyobj").post(getRecipe);
+
 indexRouter
   .route("/recipes/:id")
   .get(getRecipe)

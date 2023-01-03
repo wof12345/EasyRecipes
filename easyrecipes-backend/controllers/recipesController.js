@@ -58,8 +58,10 @@ function filterByToken(collection, fieldName, token) {
 
 export async function getRecipe(req, res) {
   console.log("Read request made at recipeData.");
-
+  let objectToFilterBy = req.body;
+  let queryObj = {};
   //filter
+
   let queryData = { ...req.query };
 
   let queryString = JSON.stringify(queryData);
@@ -69,7 +71,12 @@ export async function getRecipe(req, res) {
   );
 
   queryData = JSON.parse(queryString);
-  let query = recipes.find({});
+  if (objectToFilterBy) {
+    queryObj = objectToFilterBy;
+  }
+  console.log("query", queryObj);
+
+  let query = recipes.find(queryObj);
 
   if (queryData.sort) {
     let sortString = queryData.sort.split(",").join(" ");

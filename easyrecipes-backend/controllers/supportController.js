@@ -1,14 +1,15 @@
 import supports from "../models/supportModel.js";
 
 let demoData = {
-  supportName: "King kong",
-  supportRealName: "King kong jr",
-  supportEmail: "King kong",
-  supportPass: "dls",
-  supportMobileNo: "King kong",
-  supportAddress: "King kong",
-  supportGender: "2445",
-  supportBirthdate: "1",
+  supportName: "",
+  supportRealName: "",
+  supportEmail: "",
+  supportPass: "",
+  supportMobileNo: "",
+  supportAddress: "",
+  supportGender: "",
+  supportBirthdate: "",
+  supportID: "",
   supportActiveStatus: false,
 };
 

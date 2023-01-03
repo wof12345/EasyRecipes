@@ -21,12 +21,12 @@ document.body.addEventListener("click", (e) => {
 
   //update page init
   if (targetClass.includes("menu_item-update")) {
-    renderUpdatePage(contextData[+contextInfo.lastindex]);
+    renderUpdatePage(contextData[+contextInfo.lastindex], "edit");
   }
 
   //add page init
   if (targetClass.includes("menu_item-add")) {
-    renderUpdatePage(contextData[0], "add");
+    renderUpdatePage(contextData[0], "add", true);
   }
 
   //delete page init
@@ -60,6 +60,8 @@ document.body.addEventListener("click", (e) => {
 
     let contextInput = targetParent.querySelectorAll("input");
 
+    let newModel = {};
+
     contextInput.forEach((elm, ind) => {
       let contextInputLabel = targetParent
         .querySelectorAll("label")
@@ -71,14 +73,22 @@ document.body.addEventListener("click", (e) => {
       if (contextInputLabel.toLowerCase().includes("tags"))
         value = elm.value.split(",").map((elm) => elm.trim());
 
-      model[contextInputLabel] = value;
+      newModel[contextInputLabel] = value;
     });
     let modelObj = {};
-    modelObj[fieldName] = model;
-    let updateObj = { $push: modelObj };
-    console.log(updateObj);
+    modelObj[fieldName] = newModel;
+    if (lastCommand === "edit") {
+      let updateObj = { $push: modelObj };
+      console.log(updateObj);
 
-    updateData(contextInfo.database + "/" + contextInfo.lastFieldID, updateObj);
+      updateData(
+        contextInfo.database + "/" + contextInfo.lastFieldID,
+        updateObj
+      );
+    } else {
+      model[fieldName].push(newModel);
+      renderUpdatePage(model, "add");
+    }
   }
 
   //add button handler
@@ -101,7 +111,17 @@ document.body.addEventListener("click", (e) => {
       model[contextInputLabel] = value;
     });
 
-    model.creationDate = new Date().getTime();
+    if (contextInfo.database === "recipes") {
+      model.rating = 0;
+      model.comments = [];
+      model.creationDate = new Date().getTime();
+      model.recipeID = new Date().getTime();
+    } else if (contextInfo.database === "support") {
+      model.supportActiveStatus = false;
+      model.supportID = new Date().getTime();
+    } else if (contextInfo.database === "ingredients") {
+      model.ingredientID = new Date().getTime();
+    }
 
     updloadData(contextInfo.database + "/", model);
   }
@@ -109,7 +129,7 @@ document.body.addEventListener("click", (e) => {
   if (targetClass === "delete-attribute") {
     let id = target.dataset["id"];
     let fieldName = target.dataset["field"];
-    // console.log(field);
+    console.log(fieldName);
     let fieldToDel = {};
     fieldToDel[fieldName] = { _id: id };
     model = { $pull: fieldToDel };

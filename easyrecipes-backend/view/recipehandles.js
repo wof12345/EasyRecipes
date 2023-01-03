@@ -1,6 +1,4 @@
 let editUpdateAddAtrributeCollectionQuery = function (key, val, command) {
-  console.log(val);
-
   return `<div class="edit-cont">
   <label class="edit" for="edit">attributeName :</label>
   <div class="collection">
@@ -21,8 +19,6 @@ let editUpdateAddAtrributeCollectionQuery = function (key, val, command) {
 };
 
 let editUpdateAddIngredientCollectionQuery = function (key, val, command) {
-  console.log(val);
-
   return `<div class="edit-cont">
   <label class="edit" for="edit">ingredientID :</label>
   <div class="collection">
@@ -61,8 +57,6 @@ let editUpdateAddIngredientCollectionQuery = function (key, val, command) {
 };
 
 let editUpdateAddTagCollectionQuery = function (key, val, command) {
-  console.log(val);
-
   return `<div class="edit-cont">
   <label class="edit" for="edit">tag :</label>
   <div class="collection">
@@ -73,17 +67,16 @@ let editUpdateAddTagCollectionQuery = function (key, val, command) {
 </div>`;
 };
 
-function recipeHandle(field) {
+function recipeHandle(field, command) {
   let genHtml = "";
-  console.log(model);
 
   genHtml += `<h1>${field}</h1>`;
   if (field === "attributeInfo") {
-    genHtml += editUpdateAddAtrributeCollectionQuery("", "", "add");
+    genHtml += editUpdateAddAtrributeCollectionQuery("", "", command);
   } else if (field === "ingredients") {
-    genHtml += editUpdateAddIngredientCollectionQuery("", "", "add");
+    genHtml += editUpdateAddIngredientCollectionQuery("", "", command);
   } else if (field === "recipeTags") {
-    genHtml += editUpdateAddTagCollectionQuery("", "", "add");
+    genHtml += editUpdateAddTagCollectionQuery("", "", command);
   }
   genHtml += `<button
   class="add-update" data-field="${field}"> add </button>`;
