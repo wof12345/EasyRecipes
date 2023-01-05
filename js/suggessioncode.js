@@ -6,9 +6,12 @@ if (isLoggedIn) updateSuggessions();
 function updateSuggessions() {
   let tagArray = [];
   currentUser.userClickedTags.forEach((element) => {
-    tagArray.push({ tag: element.tag });
+    tagArray.push(element.tag);
   });
-  let queryObj = { recipeTags: { $elemMatch: { $in: tagArray } } };
+  let tagObjArray = tagArray;
+  let queryObj = { "recipeTags.tag": { $in: tagObjArray } };
+  console.log("query", queryObj);
+
   uploadData(`recipesbyobj`, queryObj, true);
 }
 
