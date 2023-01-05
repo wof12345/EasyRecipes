@@ -10,8 +10,6 @@ let cartSchema = mongoose.Schema({
   cartProducts: [productSchema],
   cartID: {
     type: String,
-    index: true,
-    unique: true,
   },
   cartPrice: {
     type: Number,
@@ -53,8 +51,6 @@ let userSchema = mongoose.Schema(
     userID: {
       type: String,
       required: true,
-      index: true,
-      unique: true,
     },
     userPass: {
       type: String,
@@ -85,7 +81,7 @@ let userSchema = mongoose.Schema(
       required: true,
     },
     userCart: cartSchema,
-    userHistory: [userTransactionSchema],
+
     userClickedTags: [],
   },
   { timestamps: { createdAt: "createdDate", updatedAt: "updatedDate" } }

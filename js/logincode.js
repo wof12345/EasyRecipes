@@ -76,7 +76,7 @@ function checkData(data, recieved) {
 
 function checkDataReg(data, recieved) {
   for (let i = 0; i < recieved.length; i++) {
-    if (data.username === recieved[i].user) {
+    if (data.userName === recieved[i].userName) {
       return false;
     }
   }
@@ -106,12 +106,18 @@ function registerProcess(data) {
       return pass;
     }
 
+    console.log("data", data, contextData);
+
     pass = checkDataReg(data, contextData);
 
     if (pass) {
       data["userID"] = new Date().getTime();
-      data["userCart"] = [];
-      data["userHistory"] = [];
+      data["userCart"] = {
+        cartProducts: [],
+        cartID: "mina",
+        cartPrice: 124,
+      };
+
       data["userClickedTags"] = [];
       console.log(data);
 

@@ -121,6 +121,7 @@ document.body.addEventListener("click", (e) => {
       model.supportID = new Date().getTime();
     } else if (contextInfo.database === "ingredients") {
       model.ingredientID = new Date().getTime();
+    } else if (contextInfo.database === "user") {
     }
 
     updloadData(contextInfo.database + "/", model);

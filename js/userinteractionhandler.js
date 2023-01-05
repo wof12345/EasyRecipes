@@ -19,8 +19,10 @@ submitTestimonial.addEventListener("click", () => {
     commentLikes: 0,
     commentText: input,
     userID: currentUser._id,
+    userName: currentUser.userName,
     userPic: currentUser.userProfilePic,
   };
+  console.log(objModel);
 
   let updateObj = { $push: { comments: objModel } };
 

@@ -1,5 +1,6 @@
 let loginRegisterInvoker = document.querySelector(`.login_register_invoker`);
 let userProfielPic = document.querySelector(`.user_picture`);
+let profileImg = document.querySelector(`.user_picture img`);
 let cartRibbon = document.querySelector(`.ribbon`);
 
 let currentUser = {};

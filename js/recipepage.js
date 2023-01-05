@@ -27,7 +27,7 @@ function saveClickedTags(data) {
       console.log(exist, elmRecipe.tag);
 
       if (!exist) {
-        tagObjectArray.push({ tag: elmRecipe.tag, clicked: 1 });
+        tagObjectArrayPush.push({ tag: elmRecipe.tag, clicked: 1 });
       }
     });
 
@@ -100,7 +100,7 @@ function generateTestiMonials(data) {
       ind === 0 ? "active" : ""
     }"></li>`;
     testimContent.innerHTML += `<div class="${ind === 0 ? "active" : ""}">
-    <div class="img"><img src="${elm["userPic"]}" alt=""></div>
+    <div class="img"><img src="${elm.userPic}" alt=""></div>
     <h2>${elm.userName}</h2>
     <p>
       ${elm["commentText"]}

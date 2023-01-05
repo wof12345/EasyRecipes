@@ -19,6 +19,7 @@ async function getData(context, containerQuery, search) {
         else renderRecipePage(contextData);
       } else if (context.includes("users")) {
         localStorage.setItem("user", JSON.stringify(contextData));
+        profileImg.src = currentUser.userProfilePic;
       } else if (context.includes("ingredients")) {
         handleCartFunction(contextData);
       }

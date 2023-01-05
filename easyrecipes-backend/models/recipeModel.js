@@ -22,9 +22,6 @@ let commentSchema = mongoose.Schema(
     userID: {
       type: String,
       required: true,
-      index: true,
-      unique: true,
-      sparse: true,
     },
     userPic: {
       type: String,
